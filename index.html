@@ -9,20 +9,18 @@
 </head>
 <body>
     <div class="container-fluid">
-        <form class="form-table-ct">
+        <form>>
             
             	<label for="wifinetworkname">Wifi Network Name</label>
-            	<input type="text" id="wifinetworkname">
+            	<input type="text" id="wifinetworkname"><br>
             	<label for="psw">Passphrase</label>
-            	<input type="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-                <label class="control-label" for="address">Address</label></td>
+            	<input type="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br>
+                <label class="control-label" for="address">Address</label>
                 <input class="form-control" id="address" value="8.8.8.8">
             
-            <tr>
-                <td><button class="pf-c-button pf-m-primary" id="ping">Ping</button></td>
-                <td><span id="result"></span></td>
-            </tr>
-        </table>
+            
+                <button class="pf-c-button pf-m-primary" id="ping">Ping</button>
+                <span id="result"></span>
         <pre id="output"></pre>
     </div>
     </form>
