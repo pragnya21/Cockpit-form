@@ -9,15 +9,15 @@
 </head>
 <body>
     <div class="container-fluid">
-        <table class="form-table-ct">
-            <tr>
-            	<td><label for="wifinetworkname">Wifi Network Name</label></td>
-            	<td><input type="text" id="wifinetworkname"></td><br>
-            	<td><label for="psw">Passphrase</label></td>
-            	<td><input type="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"></td>
-                <td><label class="control-label" for="address">Address</label></td>
-                <td><input class="form-control" id="address" value="8.8.8.8"></td>
-            </tr>
+        <form class="form-table-ct">
+            
+            	<label for="wifinetworkname">Wifi Network Name</label>
+            	<input type="text" id="wifinetworkname">
+            	<label for="psw">Passphrase</label>
+            	<input type="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                <label class="control-label" for="address">Address</label></td>
+                <input class="form-control" id="address" value="8.8.8.8">
+            
             <tr>
                 <td><button class="pf-c-button pf-m-primary" id="ping">Ping</button></td>
                 <td><span id="result"></span></td>
@@ -25,6 +25,7 @@
         </table>
         <pre id="output"></pre>
     </div>
+    </form>
 
     <script src="pinger.js"></script>
 </body>
