@@ -11,8 +11,10 @@
     <div class="container-fluid">
         <table class="form-table-ct">
             <tr>
-            	<td><label class="control-label" for="wifinetworkname">Wifi Network Name</label></td>
-            	<td><input type="password" class "form-control" id="wifi-password" placeholder="Password"></td>
+            	<td><label for="wifinetworkname">Wifi Network Name</label></td>
+            	<td><input type="text" id="wifinetworkname"></td><br>
+            	<td><label for="psw">Passphrase</label></td>
+            	<td><input type="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"></td>
                 <td><label class="control-label" for="address">Address</label></td>
                 <td><input class="form-control" id="address" value="8.8.8.8"></td>
             </tr>
