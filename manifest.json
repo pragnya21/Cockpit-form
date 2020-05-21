@@ -1,0 +1,10 @@
+{
+    "version": 0,
+
+    "tools": {
+        "apconfig": {
+            "label": "Access Point",
+            "path": "index.html"
+        }
+    }
+}
