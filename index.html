@@ -1,32 +1,59 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Pinger</title>
-    <meta charset="utf-8">
-    <link href="../base1/cockpit.css" type="text/css" rel="stylesheet">
-    <script src="cockpit.js"></script>
+  <title>Cockpit task</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="cockpit.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="container-fluid">
-        <form>
-        	<input type="checkbox" id="accesspoint" value="Access Point" name="Access Point">
-        	<label for="accesspoint"> Access Point</label><br><br> 
-            	<label for="wifinetworkname">Wifi Network Name</label>
-            	<input type="text" id="wifinetworkname"><br><br>
-            	<label for="psw">Passphrase</label>
-            	<input type="password" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br><br>
-                <label class="control-label" for="address">Address</label>
-                <input class="form-control" id="address" value="192.168.0.1"><br><br>
-                <input type="checkbox" id="internetaccess" value="Allow Internet access" name="internetaccess">
-                <label for="internet access"> Allow internet access</label><br><br> 
-                
-            
-            
-                <button class="pf-c-button pf-m-primary" id="ping">Ping</button>
-                <span id="result"></span>
-        <pre id="output"></pre>
+
+<div class="container">
+  <h1>Cockpit Form</h1>
+  <form action="#" onsubmit="validate(this);">
+    <div class="form-group form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" value="true" name="ap_enable" id="ap_enable">Enable Access Point
+        </label>
+      </div>
+    <div class="form-group">
+      <label for="ssid">SSID:</label>
+      <input type="text" class="form-control" placeholder="Enter SSID" id="ssid" name="ssid" maxlength="20" minlength="8" pattern="[A-Za-z0-9]{8,20}" required>
     </div>
-    </form>
+    <div class="form-group">
+      <label for="passphrase">Passphrase:</label>
+      <input type="passphrase" class="form-control" placeholder="Enter passphrase" id="passphrase" name="passphrase" maxlength="20" minlength="8" pattern="[A-Za-z0-9]{8,20}" required>
+    </div>
+    <div class="form-group">
+        <label for="ip">IP:</label>
+        <input type="ip" class="form-control" placeholder="Enter IP" id="ip" name="ip"  pattern="((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}" required>
+      </div>
+      <div class="form-group form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" value="true" id="net_connect" name="net_connect">Allow Internet Access for Cient
+        </label>
+      </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<script>
+    function validate(id){
+        let data = "";
+        data+="AP_ENABLE="+$('#ap_enable').is(":checked")+"\n";
+        data+="AP_SSID="+$('#ssid').val()+"\n";
+        data+="AP_PASS="+$('#passphrase').val()+"\n";
+        data+="AP_IP="+$('#ip').val()+"\n";
+        data+="AP_IP="+$('#net_connect').is(":checked")+"\n";
+        
+        let a = document.createElement('a');
+        a.href = "data:application/octet-stream,"+encodeURIComponent(data);
+        a.download = 'ap.conf';
+        a.click();
+    }
+</script>
 </body>
 </html>
